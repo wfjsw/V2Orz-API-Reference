@@ -1,0 +1,15 @@
+language: node_js
+node_js: "4"
+install:
+  - cp api.apib ~/
+  - git checkout gh-pages
+  - mv ~/api.apib ./
+  - npm install aglio@1.14 async@0.9 lodash@2.4 node-fs@0.1
+  - git clone https://github.com/kirkstrobeck/blueprint-docify.git ~/blueprint-docify
+  - cp -r ~/blueprint-docify/* ./
+script: node blueprint-docify/index.js gh-pages
+before_deploy: rm -rf blueprint-docify/ node_modules
+deploy: 
+  - git add .
+  - git commit -m "Update API documentation"
+  - git push
