@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A9F79DCF-733B-46BD-8C02-767759E1AE24}"
 	ProjectSection(SolutionItems) = preProject
 		.travis.yml = .travis.yml
-		api.apib = api.apib
+		apiary.apib = apiary.apib
 		README.md = README.md
 	EndProjectSection
 EndProject

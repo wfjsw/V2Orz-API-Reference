@@ -1,40 +1,29 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+HOST: http://server.v2.orz.chat/
 
 # V2Orz-Server
 
 V2Orz Server is a Database & Content backend for Project V2Orz  
-Author: Jabasukuriputo Wang
+Author: [Jabasukuriputo Wang](https://github.com/wfjsw) 
 
-## Questions Collection [/questions]
+## End-Client Part
 
-### List All Questions [GET]
+### Server Info [/server.manifest]
+
+#### Get Current Info Data [GET]
+
+This function returns the basic informations of this server. 
+This is a static file and cache should always be enabled.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
-        ]
+       {
+             "hostname": "clara.server.v2.orz.chat",
+             "name": "clara",
+             "admin": "unknown"        
+       }
 
-### Create a New Question [POST]
+#### Create a New Question [POST]
 
 You may create your own question using this action. It takes a JSON
 object containing a question and a collection of answers in the
