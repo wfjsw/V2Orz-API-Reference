@@ -6,11 +6,10 @@ HOST: http://server.v2.orz.chat/
 V2Orz Server is a Database & Content backend for Project V2Orz  
 Author: [Jabasukuriputo Wang](https://github.com/wfjsw) 
 
-## End-Client Part
 
-### Server Info [/server.manifest]
+## Server Info [/server.manifest]
 
-#### Get Current Info Data [GET]
+### Get Current Info Data [GET]
 
 This function returns the basic informations of this server. 
 This is a static file and cache should always be enabled.
@@ -23,7 +22,44 @@ This is a static file and cache should always be enabled.
              "admin": "unknown"        
        }
 
-#### Create a New Question [POST]
+
+# Group End Users
+
+## Node List [/node/{scope}]
+
+### Get List of All Nodes [GET]
+
++ Parameters
+    + scope (string, `all`) ... list 'all' nodes.
+
++ Model (application/json)
+
+    [
+        {
+            "ID": "tech",
+            "Fullname": "Technology",
+            "Avatar": "<sha256 of avatar in UGC>",
+            "upstream": ["<parent node>"]
+        }
+    }
+
+### Get the Info of 1 Node [GET]
+
++ Parameters
+    + scope (string, `tech`) ... get 'tech' nodes.
+
++ Model (application/json)
+
+    {
+        "ID": "tech",
+        "Fullname": "Technology",
+        ¡°Description": "blah blah blah",
+        "Avatar": "<sha256 of avatar in UGC>",
+        "Sidebar": "<sha256 of sidebar data in UGC>",
+        "upstream": ["<parent node>"]
+    }
+
+### Create a New Question [POST]
 
 You may create your own question using this action. It takes a JSON
 object containing a question and a collection of answers in the
