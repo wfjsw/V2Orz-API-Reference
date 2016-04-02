@@ -16,11 +16,11 @@ This is a static file and cache should always be enabled.
 
 + Response 200 (application/json)
 
-       {
-             "hostname": "clara.server.v2.orz.chat",
-             "name": "clara",
-             "admin": "unknown"        
-       }
+        {
+            "hostname": "clara.server.v2.orz.chat",
+            "name": "clara",
+            "admin": "unknown"        
+        }
 
 
 # Group End Users
@@ -29,16 +29,16 @@ This is a static file and cache should always be enabled.
 
 ### Get List of All Nodes [GET]
 
-+ Model (application/json)
++ Response 200 (application/json)
 
-    [
-        {
-            "ID": "tech",
-            "Fullname": "Technology",
-            "Avatar": "<sha256 of avatar in UGC>",
-            "upstream": ["<parent node>"]
+        [
+            {
+                "ID": "tech",
+                "Fullname": "Technology",
+                "Avatar": "<sha256 of avatar in UGC>",
+                "upstream": ["<parent node>"]
+            }
         }
-    }
 
 ## Node Detail [/node/{node-id}]
 
@@ -47,16 +47,16 @@ This is a static file and cache should always be enabled.
 + Parameters
     + node-id (string, `tech`) ... get 'tech' nodes.
 
-+ Model (application/json)
++ Response 200 (application/json)
 
-    {
-        "ID": "tech",
-        "Fullname": "Technology",
-        ¡°Description": "blah blah blah",
-        "Avatar": "<sha256 of avatar in UGC>",
-        "Sidebar": "<sha256 of sidebar data in UGC>",
-        "upstream": ["<parent node>"]
-    }
+        {
+            "ID": "tech",
+            "Fullname": "Technology",
+            ¡°Description": "blah blah blah",
+            "Avatar": "<sha256 of avatar in UGC>",
+            "Sidebar": "<sha256 of sidebar data in UGC>",
+            "upstream": ["<parent node>"]
+        }
 
 ### Create a New Question [POST]
 
