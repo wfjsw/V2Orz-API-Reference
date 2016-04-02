@@ -9,7 +9,7 @@ Author: [Jabasukuriputo Wang](https://github.com/wfjsw)
 
 ## Server Info [/server.manifest]
 
-### Get Current Info Data [GET]
+### Get Server Info [GET]
 
 This function returns the basic informations of this server. 
 This is a static file and cache should always be enabled to save resources.
@@ -25,12 +25,14 @@ This is a static file and cache should always be enabled to save resources.
 
 # Group Content Management
 
-## Node [/node/{scope}]
+## Nodes [/node/{scope}]
 
 ### Get List of All Nodes [GET]
 
+Note that a few of data is hidden in 'all'.
+
 + Parameters
-    + scope (string) ... Use `all` here for all nodes
+    + scope (string, `all`) ... Use `all` here for all nodes
 
 + Response 200 (application/json)
 
@@ -72,6 +74,55 @@ This is a static file and cache should always be enabled to save resources.
             "Error": 404
         }
 
+
+## Topics [/topic/{sort_factor}/{pointer}]
+
+### Get topics under a node [GET]
+
++ Parameters
+    + sort_factor (string, `id || owner || tag || node`) ... Search type.
+    + pointer (string) ... what to search
+
++ Response 200 (application/json)
+
+        [
+            {
+                "UUID": "<UUID>",
+                "Node": "<Node that this topic under>",
+                "Title": "<title>",
+                "Tags": ["<A user defined tag>"],
+                "Owner": "<Owner_Address>",
+                "timestamp_c": <client_timestamp>,
+                "timestamp_s": <server_timestamp>,
+                "Content": "<UGC_Hash>",
+                "signature": "<BTC_Sign>"
+            }
+        ]
+
+### Post a new topic [POST]
+
++ Parameters
+    + sort_factor (string, `node`) ... This must be 'node' in POST.
+    + pointer (string) ... the node topic unders.
+
++ Request (application/json)
+
+        {
+            "Title": "<title>",
+            "Tags": ["<A user defined tag>"],
+            "Owner": "<Owner_Address>",
+            "timestamp": <client_timestamp>,
+            "Content": "<Content_in_base64>",
+            "signature": "<BTC_Sign>"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "topic": "<topic UUID>",
+            "content: "<UGC hash>",
+            "timestamp": <server_timestamp>
+        }
 
 ### Create a New Question [POST]
 
