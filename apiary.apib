@@ -25,12 +25,9 @@ This is a static file and cache should always be enabled.
 
 # Group End Users
 
-## Node List [/node/{scope}]
+## Node List [/node]
 
 ### Get List of All Nodes [GET]
-
-+ Parameters
-    + scope (string, `all`) ... list 'all' nodes.
 
 + Model (application/json)
 
@@ -43,10 +40,12 @@ This is a static file and cache should always be enabled.
         }
     }
 
+## Node Detail [/node/{node-id}]
+
 ### Get the Info of 1 Node [GET]
 
 + Parameters
-    + scope (string, `tech`) ... get 'tech' nodes.
+    + node-id (string, `tech`) ... get 'tech' nodes.
 
 + Model (application/json)
 
